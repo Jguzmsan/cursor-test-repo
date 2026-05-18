@@ -3,23 +3,35 @@
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Hangman Game</title>
+    <title>Celonis Hangman</title>
     <link rel="stylesheet" href="styles.css" />
   </head>
   <body>
     <main class="game-shell">
+      <header class="top-bar">
+        <span class="brand-mark" aria-hidden="true">C</span>
+        <span>Celonis</span>
+        <span class="brand-divider" aria-hidden="true"></span>
+        <span class="brand-tag">Process Mining Hangman</span>
+      </header>
+
       <section class="hero">
-        <p class="eyebrow">Classic game</p>
+        <p class="eyebrow">Process Mining edition</p>
         <h1>Hangman</h1>
         <p class="intro">
-          Guess the word before you run out of attempts. Every wrong letter
-          draws another part of the figure.
+          Guess the Celonis-flavored word before the process breaks down. Every
+          wrong letter adds another bottleneck to your execution.
         </p>
       </section>
 
       <section class="game-card" aria-live="polite">
         <div class="hangman-stage" aria-label="Hangman state">
-          <svg viewBox="0 0 220 240" role="img" aria-labelledby="hangman-title">
+          <svg
+            class="hangman"
+            viewBox="0 0 220 240"
+            role="img"
+            aria-labelledby="hangman-title"
+          >
             <title id="hangman-title">Hangman drawing</title>
             <line class="gallows" x1="35" y1="220" x2="185" y2="220" />
             <line class="gallows" x1="65" y1="220" x2="65" y2="25" />
@@ -35,18 +47,34 @@
         </div>
 
         <div class="game-panel">
-          <p id="status" class="status">Pick a letter to start.</p>
+          <p class="panel-label">Status</p>
+          <p id="status" class="status">Pick a letter to start mining.</p>
+
+          <p class="panel-label">Hidden word</p>
           <div id="word" class="word" aria-label="Hidden word"></div>
+
           <p class="attempts">
-            Attempts left:
-            <strong id="attempts-left">6</strong>
+            Attempts left
+            <span id="attempts-left" class="attempts-pill">6</span>
           </p>
-          <div id="keyboard" class="keyboard" aria-label="Letter keyboard"></div>
+
+          <p class="panel-label">Keyboard</p>
+          <div
+            id="keyboard"
+            class="keyboard"
+            aria-label="Letter keyboard"
+          ></div>
+
           <button id="restart" class="restart-button" type="button">
-            New word
+            New process
           </button>
         </div>
       </section>
+
+      <p class="footer-note">
+        Celonis-themed Hangman · all words come from the process mining and EMS
+        world.
+      </p>
     </main>
 
     <script src="script.js"></script>

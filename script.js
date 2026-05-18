@@ -1,16 +1,24 @@
 const words = [
-  "cursor",
-  "github",
-  "javascript",
-  "developer",
-  "interface",
-  "keyboard",
-  "hangman",
-  "browser",
-  "variable",
-  "monitor",
-  "function",
-  "terminal",
+  "celonis",
+  "process",
+  "mining",
+  "execution",
+  "conformance",
+  "variant",
+  "bottleneck",
+  "automation",
+  "throughput",
+  "handover",
+  "discovery",
+  "workflow",
+  "studio",
+  "analyst",
+  "transformation",
+  "benchmark",
+  "insight",
+  "knowledge",
+  "modeler",
+  "rework",
 ];
 
 const alphabet = "abcdefghijklmnopqrstuvwxyz".split("");
@@ -43,7 +51,7 @@ function startGame() {
   mistakes = 0;
   gameOver = false;
 
-  statusElement.textContent = "Pick a letter to start.";
+  statusElement.textContent = "Pick a letter to start mining.";
   statusElement.className = "status";
   attemptsLeftElement.textContent = String(maxMistakes);
 
@@ -95,10 +103,10 @@ function handleGuess(letter) {
   guessedLetters.add(letter);
 
   if (currentWord.includes(letter)) {
-    statusElement.textContent = "Nice, that letter is in the word.";
+    statusElement.textContent = "Nice signal — that letter is in the process.";
   } else {
     mistakes += 1;
-    statusElement.textContent = "Oops, that letter is not in the word.";
+    statusElement.textContent = "Friction detected. That letter is not here.";
   }
 
   updateGameState();
@@ -117,13 +125,13 @@ function updateGameState() {
 
   if (hasWon) {
     gameOver = true;
-    statusElement.textContent = "You won! You guessed the word.";
+    statusElement.textContent = "Process optimized! You guessed the word.";
     statusElement.className = "status win";
   }
 
   if (hasLost) {
     gameOver = true;
-    statusElement.textContent = `You lost. The word was "${currentWord}".`;
+    statusElement.textContent = `Process broken. The word was "${currentWord}".`;
     statusElement.className = "status lose";
   }
 }

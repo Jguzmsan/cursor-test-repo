@@ -1,6 +1,7 @@
-# Hangman Game
+# Celonis Hangman
 
-A simple Hangman game built with plain HTML, CSS and JavaScript.
+A Celonis-themed Hangman game built with plain HTML, CSS and JavaScript.
+All hidden words come from the process mining and EMS vocabulary.
 
 ## How to play
 
@@ -11,7 +12,8 @@ Live demo: https://jguzmsan.github.io/cursor-test-repo/
 
 ## Features
 
-- Random word every game
+- Celonis-inspired UI (navy + purple palette)
+- Random Celonis / process-mining word every game
 - On-screen keyboard plus physical keyboard support
 - Remaining attempts counter
 - Progressive hangman drawing

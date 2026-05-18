@@ -1,6 +1,20 @@
 :root {
-  color: #172033;
-  background: #eef3ff;
+  --celonis-navy: #0a1f44;
+  --celonis-navy-soft: #1f2c52;
+  --celonis-purple: #7c3aed;
+  --celonis-purple-soft: #ede4ff;
+  --celonis-blue: #1a73e8;
+  --celonis-teal: #0d6e6e;
+  --celonis-bg: #fafafd;
+  --celonis-border: #d3d3dd;
+  --celonis-text-soft: #4a5578;
+  --celonis-success-bg: #e1f7ec;
+  --celonis-success-text: #087451;
+  --celonis-danger-bg: #fde2e7;
+  --celonis-danger-text: #bc1932;
+
+  color: var(--celonis-navy);
+  background: var(--celonis-bg);
   font-family:
     Inter, ui-sans-serif, system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI",
     sans-serif;
@@ -14,8 +28,9 @@ body {
   min-height: 100vh;
   margin: 0;
   background:
-    radial-gradient(circle at top left, rgba(95, 111, 255, 0.22), transparent 32rem),
-    linear-gradient(135deg, #f8fbff 0%, #e9efff 100%);
+    radial-gradient(circle at 12% -8%, rgba(124, 58, 237, 0.18), transparent 36rem),
+    radial-gradient(circle at 92% 12%, rgba(26, 115, 232, 0.14), transparent 32rem),
+    linear-gradient(180deg, #ffffff 0%, var(--celonis-bg) 100%);
 }
 
 button {
@@ -28,52 +43,94 @@ button {
   padding: 56px 0;
 }
 
+.top-bar {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  margin-bottom: 28px;
+  color: var(--celonis-navy);
+  font-weight: 700;
+}
+
+.brand-mark {
+  display: inline-grid;
+  place-items: center;
+  width: 28px;
+  height: 28px;
+  border-radius: 8px;
+  background: var(--celonis-navy);
+  color: #ffffff;
+  font-size: 0.85rem;
+  font-weight: 900;
+  letter-spacing: 0.04em;
+}
+
+.brand-divider {
+  width: 1px;
+  height: 18px;
+  background: var(--celonis-border);
+}
+
+.brand-tag {
+  color: var(--celonis-text-soft);
+  font-size: 0.85rem;
+  font-weight: 600;
+}
+
 .hero {
-  max-width: 680px;
+  max-width: 720px;
   margin-bottom: 32px;
 }
 
 .eyebrow {
-  margin: 0 0 8px;
-  color: #5364d8;
-  font-size: 0.8rem;
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  margin: 0 0 14px;
+  padding: 6px 12px;
+  border-radius: 999px;
+  background: var(--celonis-purple-soft);
+  color: var(--celonis-purple);
+  font-size: 0.75rem;
   font-weight: 800;
-  letter-spacing: 0.16em;
+  letter-spacing: 0.14em;
   text-transform: uppercase;
 }
 
 h1 {
   margin: 0;
-  color: #111827;
-  font-size: clamp(3rem, 8vw, 6rem);
-  line-height: 0.95;
+  color: var(--celonis-navy);
+  font-size: clamp(2.8rem, 7vw, 5.2rem);
+  font-weight: 800;
+  letter-spacing: -0.02em;
+  line-height: 1;
 }
 
 .intro {
   margin: 18px 0 0;
-  color: #4b5563;
-  font-size: 1.1rem;
+  max-width: 600px;
+  color: var(--celonis-text-soft);
+  font-size: 1.05rem;
   line-height: 1.6;
 }
 
 .game-card {
   display: grid;
   grid-template-columns: minmax(260px, 0.85fr) minmax(300px, 1.15fr);
-  gap: 28px;
+  gap: 24px;
   align-items: stretch;
-  padding: 28px;
-  border: 1px solid rgba(85, 102, 190, 0.16);
-  border-radius: 32px;
-  background: rgba(255, 255, 255, 0.82);
-  box-shadow: 0 24px 70px rgba(54, 69, 120, 0.18);
-  backdrop-filter: blur(18px);
+  padding: 24px;
+  border: 1px solid var(--celonis-border);
+  border-radius: 16px;
+  background: #ffffff;
+  box-shadow: 0 24px 56px rgba(10, 31, 68, 0.08);
 }
 
 .hangman-stage,
 .game-panel {
-  border-radius: 24px;
-  background: #ffffff;
-  box-shadow: inset 0 0 0 1px rgba(23, 32, 51, 0.06);
+  border-radius: 12px;
+  background: var(--celonis-bg);
+  box-shadow: inset 0 0 0 1px var(--celonis-border);
 }
 
 .hangman-stage {
@@ -83,7 +140,7 @@ h1 {
   padding: 24px;
 }
 
-svg {
+svg.hangman {
   width: min(100%, 340px);
   stroke-linecap: round;
   stroke-linejoin: round;
@@ -91,14 +148,15 @@ svg {
 
 .gallows {
   fill: none;
-  stroke: #7c86a8;
+  stroke: var(--celonis-navy);
   stroke-width: 8;
+  opacity: 0.85;
 }
 
 .body-part {
   fill: none;
   opacity: 0;
-  stroke: #f45b69;
+  stroke: var(--celonis-purple);
   stroke-width: 8;
   transform-origin: center;
   transition:
@@ -117,22 +175,32 @@ svg {
   flex-direction: column;
   justify-content: center;
   padding: 28px;
+  background: #ffffff;
+}
+
+.panel-label {
+  margin: 0 0 6px;
+  color: var(--celonis-text-soft);
+  font-size: 0.72rem;
+  font-weight: 800;
+  letter-spacing: 0.14em;
+  text-transform: uppercase;
 }
 
 .status {
-  min-height: 32px;
+  min-height: 30px;
   margin: 0 0 18px;
-  color: #5364d8;
+  color: var(--celonis-purple);
   font-size: 1.05rem;
-  font-weight: 800;
+  font-weight: 700;
 }
 
 .status.win {
-  color: #0f9f6e;
+  color: var(--celonis-success-text);
 }
 
 .status.lose {
-  color: #d92d45;
+  color: var(--celonis-danger-text);
 }
 
 .word {
@@ -147,97 +215,123 @@ svg {
   place-items: center;
   width: 44px;
   height: 56px;
-  border-bottom: 4px solid #172033;
-  color: #111827;
+  border-bottom: 3px solid var(--celonis-navy);
+  color: var(--celonis-navy);
   font-size: 2rem;
-  font-weight: 900;
+  font-weight: 800;
   text-transform: uppercase;
 }
 
 .attempts {
-  margin: 0 0 24px;
-  color: #4b5563;
-  font-size: 1rem;
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  margin: 0 0 22px;
+  color: var(--celonis-text-soft);
+  font-size: 0.95rem;
 }
 
-.attempts strong {
-  color: #111827;
+.attempts-pill {
+  display: inline-grid;
+  place-items: center;
+  min-width: 30px;
+  height: 26px;
+  padding: 0 10px;
+  border-radius: 999px;
+  background: var(--celonis-navy);
+  color: #ffffff;
+  font-size: 0.85rem;
+  font-weight: 800;
 }
 
 .keyboard {
   display: grid;
   grid-template-columns: repeat(auto-fit, minmax(42px, 1fr));
-  gap: 10px;
+  gap: 8px;
   margin-bottom: 22px;
 }
 
 .key {
   min-height: 42px;
-  border: 0;
-  border-radius: 12px;
-  background: #e8edff;
-  color: #273258;
+  border: 1px solid var(--celonis-border);
+  border-radius: 10px;
+  background: #ffffff;
+  color: var(--celonis-navy);
   cursor: pointer;
-  font-weight: 900;
+  font-weight: 800;
   text-transform: uppercase;
   transition:
     background 140ms ease,
+    border-color 140ms ease,
     color 140ms ease,
     transform 140ms ease;
 }
 
 .key:not(:disabled):hover {
-  background: #5364d8;
+  background: var(--celonis-navy);
+  border-color: var(--celonis-navy);
   color: #ffffff;
   transform: translateY(-1px);
 }
 
 .key.correct {
-  background: #d7f8e8;
-  color: #087451;
+  background: var(--celonis-success-bg);
+  border-color: var(--celonis-success-text);
+  color: var(--celonis-success-text);
 }
 
 .key.wrong {
-  background: #ffe0e5;
-  color: #bc1932;
+  background: var(--celonis-danger-bg);
+  border-color: var(--celonis-danger-text);
+  color: var(--celonis-danger-text);
 }
 
 .key:disabled {
   cursor: not-allowed;
+  opacity: 0.85;
 }
 
 .restart-button {
   align-self: flex-start;
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
   border: 0;
-  border-radius: 999px;
-  background: #172033;
+  border-radius: 10px;
+  background: var(--celonis-purple);
   color: #ffffff;
   cursor: pointer;
   font-weight: 800;
-  padding: 12px 20px;
+  padding: 11px 18px;
   transition:
     background 140ms ease,
     transform 140ms ease;
 }
 
 .restart-button:hover {
-  background: #5364d8;
+  background: var(--celonis-navy);
   transform: translateY(-1px);
+}
+
+.footer-note {
+  margin: 24px 4px 0;
+  color: var(--celonis-text-soft);
+  font-size: 0.8rem;
 }
 
 @media (max-width: 760px) {
   .game-shell {
-    padding: 32px 0;
+    padding: 28px 0;
   }
 
   .game-card {
     grid-template-columns: 1fr;
-    padding: 18px;
-    border-radius: 24px;
+    padding: 16px;
+    border-radius: 14px;
   }
 
   .hangman-stage {
-    min-height: 280px;
+    min-height: 260px;
   }
 
   .game-panel {

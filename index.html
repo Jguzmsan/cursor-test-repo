@@ -1,0 +1,54 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Hangman Game</title>
+    <link rel="stylesheet" href="styles.css" />
+  </head>
+  <body>
+    <main class="game-shell">
+      <section class="hero">
+        <p class="eyebrow">Classic game</p>
+        <h1>Hangman</h1>
+        <p class="intro">
+          Guess the word before you run out of attempts. Every wrong letter
+          draws another part of the figure.
+        </p>
+      </section>
+
+      <section class="game-card" aria-live="polite">
+        <div class="hangman-stage" aria-label="Hangman state">
+          <svg viewBox="0 0 220 240" role="img" aria-labelledby="hangman-title">
+            <title id="hangman-title">Hangman drawing</title>
+            <line class="gallows" x1="35" y1="220" x2="185" y2="220" />
+            <line class="gallows" x1="65" y1="220" x2="65" y2="25" />
+            <line class="gallows" x1="65" y1="25" x2="150" y2="25" />
+            <line class="gallows" x1="150" y1="25" x2="150" y2="55" />
+            <circle class="body-part" data-part="1" cx="150" cy="75" r="20" />
+            <line class="body-part" data-part="2" x1="150" y1="95" x2="150" y2="145" />
+            <line class="body-part" data-part="3" x1="150" y1="110" x2="120" y2="130" />
+            <line class="body-part" data-part="4" x1="150" y1="110" x2="180" y2="130" />
+            <line class="body-part" data-part="5" x1="150" y1="145" x2="125" y2="185" />
+            <line class="body-part" data-part="6" x1="150" y1="145" x2="175" y2="185" />
+          </svg>
+        </div>
+
+        <div class="game-panel">
+          <p id="status" class="status">Pick a letter to start.</p>
+          <div id="word" class="word" aria-label="Hidden word"></div>
+          <p class="attempts">
+            Attempts left:
+            <strong id="attempts-left">6</strong>
+          </p>
+          <div id="keyboard" class="keyboard" aria-label="Letter keyboard"></div>
+          <button id="restart" class="restart-button" type="button">
+            New word
+          </button>
+        </div>
+      </section>
+    </main>
+
+    <script src="script.js"></script>
+  </body>
+</html>
